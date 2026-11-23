@@ -602,6 +602,85 @@ html,body{overflow-x:clip}
   .info-panel.is-product .option-name{font-size:12px!important}
 }
 
+
+/* === AZARAN MOBILE FINAL CLEANUP 2026-11-23 ===
+   All overrides are mobile-only. Desktop markup, styling and data remain intact. */
+@media (max-width:800px){
+  /* Strip unneeded small-print, secondary footer, duplicate technical details. */
+  .info-panel>.panel-footer,
+  .info-panel .panel-bottom-links,
+  .info-panel .footer-head,
+  .info-panel .page-actions,
+  .layout .rail,
+  .stage-bottom,
+  .page-count-mobile,
+  .legal-line,
+  .info-panel .extra-specs,
+  .info-panel .catalog-note,
+  .info-panel .mobile-specs,
+  .info-panel .product-snapshot{
+    display:none!important;
+  }
+  /* Keep the page intentionally short and highly readable. */
+  body{font-size:16px;line-height:1.9}
+  .topbar{height:65px!important;padding-inline:16px;gap:10px}
+  .brandtype b{font-size:14px!important;letter-spacing:.21em}
+  .brandtype small{font-size:10px!important;letter-spacing:.24em;margin-top:4px}
+  .identity-symbol{width:33px;height:33px;font-size:22px}
+  .top-actions{gap:8px}
+  .top-button{min-height:43px!important;padding-inline:12px!important;border-radius:11px}
+  .top-button svg{width:20px;height:20px}
+  .top-button span{font-size:14px!important}
+  .stage{padding:13px 10px 8px}
+  .stage-topline{margin-bottom:12px}
+  .stage-topline>span:first-child:before{font-size:13px!important;line-height:1.7;letter-spacing:0}
+  .stage-topline .latin,.stage-topline strong{font-size:12px!important}
+  .stage-arrow{touch-action:manipulation}
+  .info-panel{margin:7px 10px 0!important;border-radius:20px}
+  .info-panel .panel-inner,.info-panel.is-product .panel-inner{padding:23px 20px 24px!important}
+  .info-panel.is-product .panel-fa{font-size:clamp(23px,6vw,28px)!important;line-height:1.6;letter-spacing:-.01em}
+  .info-panel.is-product .panel-en{font-size:15px!important;line-height:1.65;letter-spacing:.05em;margin-top:4px!important}
+  .info-panel.is-product .price-section{margin-top:18px;padding-top:16px}
+  .info-panel.is-product .price-header{margin-bottom:11px}
+  .info-panel.is-product .price-header strong{font-size:16px!important}
+  .info-panel.is-product .price-header small{font-size:13px!important}
+  .info-panel.is-product .price-hero{min-height:80px;padding:14px 15px;border-radius:13px}
+  .info-panel.is-product .price-hero small{font-size:14px!important;line-height:1.65}
+  .info-panel.is-product .price-hero b{font-size:clamp(26px,7vw,32px)!important;line-height:1.45;letter-spacing:0}
+  .info-panel.is-product .price-hero b span{font-size:14px!important}
+  .info-panel.is-product .choices-title{font-size:14px!important;margin-top:16px;margin-bottom:10px}
+  .info-panel.is-product .price-choices{gap:10px;padding-bottom:4px}
+  .info-panel.is-product .price-choice{min-height:52px!important;padding:11px 14px!important}
+  .info-panel.is-product .option-name{font-size:14px!important;line-height:1.8}
+  .info-panel:not(.is-product) .title-group:before{font-size:25px!important}
+  .info-panel:not(.is-product) .cover-desc{font-size:15px!important;line-height:1.95;margin-top:9px}
+  .info-panel:not(.is-product) .cta-full{font-size:15px!important;min-height:52px;border-radius:12px}
+  .site-credit{margin-top:14px;padding:18px 14px max(20px,env(safe-area-inset-bottom));font-size:14px!important;line-height:1.9;gap:4px 7px}
+  .site-credit a{font-size:14px!important}
+  .drawer-title{font-size:23px!important}
+  .drawer-kicker{font-size:12px}
+  .drawer-head{padding:17px 19px}
+  .searchbox input{font-size:15px!important;min-height:48px}
+  .drawer-item{min-height:90px;gap:12px}
+  .drawer-item .drawer-en{font-size:15px!important}
+  .drawer-item .drawer-fa,.drawer-item .drawer-price{font-size:13px!important;line-height:1.75}
+  .drawer-foot{font-size:13px!important}
+  .lightbox-top b{font-size:15px!important}
+  .lightbox-top small{font-size:13px!important}
+  .lightbox-bottom{gap:8px}
+  .lightbox-bottom button,.lightbox-bottom span{font-size:13px!important}
+  .toast{font-size:14px!important}
+}
+@media(max-width:360px){
+  .topbar{padding-inline:10px!important}
+  .top-button{padding-inline:9px!important}
+  .stage-topline>span:first-child:before{font-size:11px!important}
+  .info-panel .panel-inner,.info-panel.is-product .panel-inner{padding:20px 16px!important}
+  .info-panel.is-product .panel-fa{font-size:22px!important}
+  .info-panel.is-product .price-hero b{font-size:24px!important}
+  .info-panel.is-product .option-name{font-size:13px!important}
+}
+
 </style></head><body>
 <header class="topbar"><a href="#page-1" class="identity" aria-label="بازگشت به جلد آذران نور"><span class="identity-symbol">✳</span><span class="brandtype latin"><b>AZARAN</b><small>NOOR</small></span></a><div class="topbar-center latin"><b>PENDANT LIGHTS</b><span>PRICE LIST / 1405</span></div><div class="top-actions"><button class="top-button" type="button" data-action="share" aria-label="اشتراک‌گذاری لینک"><svg viewBox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 2-2v-5"/></svg><span class="share-label">اشتراک‌گذاری</span></button><button class="top-button primary" type="button" data-action="menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>فهرست محصولات</span></button></div></header>
 <div class="top-progress"><span id="progress-fill"></span></div>
@@ -814,6 +893,40 @@ const azaranSyncRailMode=()=>{
 };
 if(azaranRailMedia.addEventListener) azaranRailMedia.addEventListener('change',azaranSyncRailMode);
 else if(azaranRailMedia.addListener) azaranRailMedia.addListener(azaranSyncRailMode);
+
+
+// Mobile editorial version: do not even render the extra sections shown in older screenshots.
+// Desktop continues to receive the untouched full existing product template.
+const azaranEditorialMedia=window.matchMedia('(max-width:800px)');
+const azaranFullProductTemplate=productTemplate;
+productTemplate=function(p){
+  const markup=azaranFullProductTemplate(p);
+  if(!azaranEditorialMedia.matches) return markup;
+  const holder=document.createElement('template');
+  holder.innerHTML=markup;
+  holder.content.querySelectorAll('.extra-specs,.catalog-note,.mobile-specs,.product-snapshot').forEach(node=>node.remove());
+  return holder.innerHTML;
+};
+const azaranMobileOnlyElements=[
+  document.querySelector('.info-panel>.panel-footer'),
+  document.querySelector('.legal-line')
+];
+function azaranEnforceMobileTrim(){
+  const mobile=azaranEditorialMedia.matches;
+  azaranMobileOnlyElements.forEach(node=>{
+    if(!node)return;
+    node.hidden=mobile;
+    if(mobile)node.style.setProperty('display','none','important');
+    else node.style.removeProperty('display');
+  });
+}
+azaranEnforceMobileTrim();
+const azaranRefreshLayoutMode=()=>{
+  azaranEnforceMobileTrim();
+  renderPage(currentPage);
+};
+if(azaranEditorialMedia.addEventListener)azaranEditorialMedia.addEventListener('change',azaranRefreshLayoutMode);
+else if(azaranEditorialMedia.addListener)azaranEditorialMedia.addListener(azaranRefreshLayoutMode);
 
 window.addEventListener('hashchange',syncHash);window.addEventListener('popstate',syncHash);drawThumbs();drawDrawer();syncHash();
 })();</script></body></html>
