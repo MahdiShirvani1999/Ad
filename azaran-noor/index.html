@@ -384,6 +384,165 @@ html,body{overflow-x:clip}
  .sheet-frame .stage-arrow:not(:disabled){transform:translateY(-50%)!important}
 }
 
+
+/* === AZARAN MOBILE EDITORIAL REDESIGN 2026-11-23 ===
+   Deliberately isolated: desktop and tablet above 800px keep their exact layout.
+   All original catalog images, pricing data, typography and navigation survive. */
+.mobile-specs{display:none}
+@keyframes az-mobile-page{
+  0%{opacity:.24;transform:perspective(900px) translate3d(var(--page-enter-x),18px,0) rotateY(9deg) scale(.934);filter:brightness(.62) saturate(.76)}
+  60%{opacity:1;filter:brightness(1.12) saturate(1.08)}
+  82%{transform:perspective(900px) translate3d(0,-3px,0) rotateY(-1deg) scale(1.008)}
+  100%{opacity:1;transform:none;filter:none}
+}
+@keyframes az-mobile-panel-reveal{
+  0%{opacity:0;transform:translate3d(0,25px,0) scale(.975);filter:blur(3px)}
+  70%{opacity:1;transform:translate3d(0,-3px,0) scale(1.007);filter:blur(0)}
+  100%{opacity:1;transform:none;filter:none}
+}
+@keyframes az-mobile-drawer{
+  from{opacity:.8;transform:translate3d(0,110%,0)}
+  to{opacity:1;transform:translate3d(0,0,0)}
+}
+@keyframes az-mobile-spec-expand{
+  from{opacity:0;transform:translate3d(0,-9px,0)}
+  to{opacity:1;transform:none}
+}
+@keyframes az-mobile-glow{
+  0%,100%{opacity:.48;transform:translate3d(-50%,0,0) scale(.96)}
+  50%{opacity:.83;transform:translate3d(-50%,-8px,0) scale(1.06)}
+}
+@media(max-width:800px){
+  html{scroll-behavior:smooth;scroll-padding-top:12px}
+  body{background:#15100c;overflow-x:hidden}
+  .topbar{height:58px;padding-inline:16px;background:#15110e}
+  .identity{gap:9px}
+  .identity-symbol{width:30px;height:30px}
+  .brandtype b{font-size:12px}
+  .brandtype small{margin-top:3px}
+  .top-actions{gap:8px}
+  .top-button{min-height:36px;border-radius:10px}
+  .top-button.primary{background:#d3a66d;color:#21170e}
+  .top-progress{height:3px}
+  .layout{display:flex;flex-direction:column;gap:0;min-height:0;padding:0;background:radial-gradient(ellipse 80% 47% at 50% 24%,var(--pageGlow),transparent 88%)}
+  .stage{order:1;padding:11px 10px 12px;min-height:0;overflow:hidden}
+  .stage-topline{margin:0 0 11px;padding:0 5px;color:#d3c5b4;gap:8px}
+  .stage-topline>span:first-child{font-size:0}
+  .stage-topline>span:first-child:before{content:'لمس برای بزرگ‌نمایی · کشیدن برای ورق‌زدن';font-size:10px;letter-spacing:0;white-space:normal}
+  .stage-topline .latin{font-size:9px;letter-spacing:.08em;white-space:nowrap}
+  .sheet-region{padding-inline:4px;overflow:visible}
+  .sheet-frame{width:100%;max-width:min(100%,515px)}
+  .sheet-frame .sheet{width:100%;border:1px solid rgba(241,209,159,.27);border-radius:8px;box-shadow:0 17px 48px #0009,0 0 0 5px rgba(215,171,107,.035)!important;transform-origin:center}
+  .sheet img{width:100%;height:auto;max-width:100%;max-height:unset;object-fit:contain}
+  .sheet-mark{display:none!important}
+  .sheet-frame::before{animation:az-mobile-glow 6.5s ease-in-out infinite;transform-origin:center}
+  .sheet-frame .stage-arrow{width:40px!important;height:50px!important;border-radius:12px!important;background:rgba(24,19,16,.9);border-color:rgba(244,203,145,.67);box-shadow:0 6px 20px rgba(0,0,0,.48);touch-action:manipulation}
+  .sheet-frame .stage-arrow:not(.next){right:-1px!important}
+  .sheet-frame .stage-arrow.next{left:-1px!important}
+  .sheet-frame .stage-arrow svg{width:21px;height:21px}
+  .sheet.moving{animation:az-mobile-page .79s cubic-bezier(.16,.75,.17,1) both!important}
+  .stage.motion-boost .sheet-frame::after{animation-duration:.8s}
+  .stage.mobile-touching .sheet:not(.moving){transform:translate3d(var(--mobile-touch-x,0px),-3px,0) rotateZ(var(--mobile-touch-r,0deg)) scale(.988)!important;transition:transform .15s ease-out!important}
+  .stage-bottom,.rail,.page-count-mobile,.legal-line{display:none!important}
+  .info-panel{order:2;position:relative;z-index:3;min-height:0;max-height:none;overflow:visible;margin:3px 10px 0;border:0;border-radius:21px;background:#f7f3ec;box-shadow:0 12px 32px rgba(0,0,0,.24)}
+  .info-panel .panel-inner,.info-panel.is-product .panel-inner{padding:19px 19px 20px;overflow:visible;min-height:0}
+  .info-panel .panel-footer{display:none!important}
+  .info-panel .edition-tag{display:none!important}
+  .info-panel .title-group,.info-panel.is-product .title-group{padding:0!important;display:flex;flex-direction:column;min-width:0}
+  .info-panel.is-product .panel-fa{display:block;order:1;font-size:20px;font-weight:700;line-height:1.7;color:#231a13;margin:0}
+  .info-panel.is-product .panel-fa:before{display:none}
+  .info-panel.is-product .panel-en{order:2;text-align:right;direction:ltr;font-size:12px!important;font-weight:700;line-height:1.5;letter-spacing:.09em;color:#9a7d5d;margin:2px 0 0;overflow-wrap:anywhere}
+  .info-panel.is-product .product-snapshot,.info-panel.is-product .extra-specs,.info-panel.is-product .catalog-note{display:none!important}
+  .info-panel.is-product .price-section{margin:14px 0 0;padding:12px 0 0;border-top:1px solid #e6d9c8}
+  .info-panel.is-product .price-header{margin-bottom:8px}
+  .info-panel.is-product .price-header strong{font-size:12px;color:#544333}
+  .info-panel.is-product .price-header small{font-size:10px}
+  .info-panel.is-product .price-hero{padding:10px 13px;min-height:64px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:5px 12px;border:1px solid #ebd8be;border-right:3px solid #b98547;border-radius:12px;background:linear-gradient(110deg,#f8eee0,#f5e2c9)}
+  .info-panel.is-product .price-hero small{font-size:10px;line-height:1.5;color:#8a6d4d;margin:0}
+  .info-panel.is-product .price-hero b{font-size:clamp(21px,5.7vw,28px);font-weight:700;line-height:1.4;white-space:nowrap}
+  .info-panel.is-product .price-hero b span{font-size:11px;margin-right:4px}
+  .info-panel.is-product .choices-title{margin:13px 0 8px;color:#7b6b5a;font-size:11px}
+  .info-panel.is-product .price-choices{display:flex!important;gap:8px;align-items:stretch;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;overscroll-behavior-inline:contain;scrollbar-width:none;margin:0 -2px;padding:2px 2px 7px;-webkit-overflow-scrolling:touch}
+  .price-choices::-webkit-scrollbar{display:none}
+  .info-panel.is-product .price-choice{flex:0 0 auto;scroll-snap-align:start;min-height:40px;max-width:76vw;padding:8px 12px;border-radius:10px;border:1px solid #e0d1be;background:#fffdfa;gap:7px;box-shadow:none!important}
+  .info-panel.is-product .price-choice.active{background:#34281c;color:#fff;border-color:#34281c;box-shadow:inset 0 0 0 1px #34281c!important}
+  .info-panel.is-product .option-name{font-size:11px;line-height:1.8;color:#47392b;white-space:normal}
+  .info-panel.is-product .price-choice.active .option-name{color:#fff4e2}
+  .info-panel.is-product .option-dot{width:11px;height:11px;flex:0 0 11px}
+  .mobile-specs{display:block;margin:14px 0 0;border-top:1px solid #e2d5c4;padding:2px 0 0;color:#594838}
+  .mobile-specs summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;font-size:12px;font-weight:600;cursor:pointer;touch-action:manipulation}
+  .mobile-specs summary::-webkit-details-marker{display:none}
+  .mobile-detail-arrow{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#eee3d4;color:#7d5835;font:20px Arial,sans-serif;line-height:1;transition:transform .3s ease,background .3s}
+  .mobile-specs[open] .mobile-detail-arrow{transform:rotate(45deg);background:#dfc9a9}
+  .mobile-specs-body{padding:5px 0 2px;animation:az-mobile-spec-expand .36s cubic-bezier(.22,1,.36,1) both}
+  .mobile-spec-row{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:8px 0;border-top:1px solid #eee4d8;font-size:11px;line-height:1.8}
+  .mobile-spec-row span{color:#8a7761;flex-shrink:0}
+  .mobile-spec-row strong{font-size:11px;font-weight:600;color:#31271d;text-align:left}
+  .mobile-spec-table{display:flex;align-items:center;justify-content:center;width:100%;min-height:42px;border:1px solid #dac4a6;border-radius:10px;background:#f0e3d1;color:#654522;font-size:11px;font-weight:600;margin-top:11px}
+  .mobile-spec-table:active{transform:scale(.98);background:#e8d3b6}
+  .info-panel:not(.is-product) .panel-inner{padding:19px 19px 19px}
+  .info-panel:not(.is-product) .panel-small,.info-panel:not(.is-product) .cover-title,.info-panel:not(.is-product) .cover-sub,.info-panel:not(.is-product) .cover-facts{display:none!important}
+  .info-panel:not(.is-product) .title-group:before{content:'مجموعه چراغ‌های آویز';display:block;color:#241c14;font-size:20px;font-weight:700;line-height:1.75}
+  .info-panel:not(.is-product) .cover-desc{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin:6px 0 0;font-size:12px;color:#776858;line-height:1.85}
+  .info-panel:not(.is-product) .cover-price{margin:14px 0 0;padding:0;border:0}
+  .info-panel:not(.is-product) .cta-full{min-height:43px;border-radius:11px;font-size:12px;box-shadow:none}
+  #info-panel:not(.mobile-inview) #info-content .title-group,
+  #info-panel:not(.mobile-inview) #info-content .price-section,
+  #info-panel:not(.mobile-inview) #info-content .cover-price,
+  #info-panel:not(.mobile-inview) #info-content .mobile-specs{opacity:0!important;animation:none!important}
+  #info-panel.mobile-inview #info-content .title-group{animation:az-mobile-panel-reveal .65s .04s cubic-bezier(.22,1,.36,1) both!important}
+  #info-panel.mobile-inview #info-content .price-section,
+  #info-panel.mobile-inview #info-content .cover-price{animation:az-mobile-panel-reveal .67s .16s cubic-bezier(.22,1,.36,1) both!important}
+  #info-panel.mobile-inview #info-content .mobile-specs{animation:az-mobile-panel-reveal .56s .27s cubic-bezier(.22,1,.36,1) both!important}
+  #selected-price b{animation-duration:.48s!important}
+  .site-credit{margin-top:11px;padding:15px 14px max(17px,env(safe-area-inset-bottom));background:#15100c;border-top:0;font-size:10px;gap:4px 6px}
+  .site-credit .credit-url,.site-credit [aria-hidden="true"]{display:none!important}
+  .drawer-shade{background:rgba(9,7,6,.78);backdrop-filter:blur(7px)}
+  .drawer{inset:auto 0 0;max-height:91dvh;height:min(85dvh,740px);width:100%;border-radius:24px 24px 0 0;padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -18px 55px rgba(0,0,0,.46);animation:az-mobile-drawer .46s cubic-bezier(.18,.83,.2,1) both;overflow:hidden}
+  .drawer:before{content:'';display:block;flex:0 0 auto;width:42px;height:4px;margin:10px auto 0;border-radius:12px;background:#c7b39a}
+  .drawer-head{padding:12px 19px 13px}
+  .drawer-title{font-size:20px;margin-top:3px}
+  .drawer-kicker{font-size:9px}
+  .searchbox{margin-top:13px}
+  .drawer-items{padding:5px 12px 10px}
+  .drawer-item{grid-template-columns:55px 1fr auto;min-height:75px;gap:12px;padding:7px}
+  .drawer-item img{width:55px;height:59px;border-radius:7px}
+  .drawer-item .drawer-en{font-size:12px}
+  .drawer-item .drawer-fa,.drawer-item .drawer-price{font-size:10px}
+  .drawer-foot{padding:9px 17px 12px}
+  .lightbox-top{min-height:55px}
+  .zoom-view{padding:9px 6px}
+  .zoom-view img{max-height:calc(100dvh - 135px)}
+  .lightbox-bottom{height:53px;gap:7px;padding-inline:8px}
+  .lightbox-bottom button{padding:9px 10px;white-space:nowrap}
+  .lightbox-bottom span{font-size:10px;text-align:center}
+  .sheet-frame .stage-arrow:active:not(:disabled){transform:translateY(-50%) scale(.89)!important}
+  .top-button:active,.price-choice:active,.mobile-specs summary:active{filter:brightness(1.1)}
+}
+@media(max-width:390px){
+  .topbar{padding-inline:11px}
+  .top-actions .top-button{padding-inline:8px}
+  .stage{padding-inline:8px}
+  .stage-topline>span:first-child:before{font-size:9px}
+  .info-panel{margin-inline:8px}
+  .info-panel .panel-inner,.info-panel.is-product .panel-inner{padding-inline:16px}
+  .info-panel.is-product .panel-fa{font-size:18px}
+  .info-panel.is-product .price-hero b{font-size:20px}
+}
+@media(max-width:800px) and (prefers-reduced-motion:reduce){
+  .sheet.moving,.sheet-frame::before,.stage.motion-boost .sheet-frame::after,
+  #info-panel.mobile-inview #info-content .title-group,
+  #info-panel.mobile-inview #info-content .price-section,
+  #info-panel.mobile-inview #info-content .cover-price,
+  #info-panel.mobile-inview #info-content .mobile-specs,
+  .mobile-specs-body,.drawer,.mobile-detail-arrow{animation:none!important;transition:none!important;filter:none!important;transform:none!important;opacity:1!important}
+  .sheet-frame .stage-arrow{transform:translateY(-50%)!important}
+  #info-panel:not(.mobile-inview) #info-content .title-group,
+  #info-panel:not(.mobile-inview) #info-content .price-section,
+  #info-panel:not(.mobile-inview) #info-content .cover-price,
+  #info-panel:not(.mobile-inview) #info-content .mobile-specs{opacity:1!important}
+}
+
 </style></head><body>
 <header class="topbar"><a href="#page-1" class="identity" aria-label="بازگشت به جلد آذران نور"><span class="identity-symbol">✳</span><span class="brandtype latin"><b>AZARAN</b><small>NOOR</small></span></a><div class="topbar-center latin"><b>PENDANT LIGHTS</b><span>PRICE LIST / 1405</span></div><div class="top-actions"><button class="top-button" type="button" data-action="share" aria-label="اشتراک‌گذاری لینک"><svg viewBox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 2-2v-5"/></svg><span class="share-label">اشتراک‌گذاری</span></button><button class="top-button primary" type="button" data-action="menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>فهرست محصولات</span></button></div></header>
 <div class="top-progress"><span id="progress-fill"></span></div>
@@ -429,6 +588,18 @@ function productTemplate(p){
  const details=`<details class="extra-specs"><summary>رنگ‌ها و اطلاعات تکمیلی</summary><div class="extra-body"><div class="extra-row"><small>رنگ‌های درج‌شده</small><strong>${esc(p.colors.join('، '))}</strong></div>${p.lumens?`<div class="extra-row"><small>شار نوری</small><strong>${esc(p.lumens)}</strong></div>`:''}</div></details>`;
  return `<div class="edition-tag"><span>آذران نور / چراغ‌های آویز</span><span class="num">${String(p.page).padStart(2,'0')} / 12</span></div><div class="title-group"><h1 class="panel-en">${esc(p.en)}</h1><div class="panel-fa">آویز ${esc(p.fa)}</div></div><div class="product-snapshot"><div class="product-fact"><small>توان</small><strong>${esc(p.watt)}</strong></div><div class="product-fact"><small>${p.page===11?'طول':'ابعاد'}</small><strong>${esc(p.dimension)}</strong></div></div><section class="price-section" aria-label="قیمت مدل"><div class="price-header"><strong>قیمت محصول</strong><small>مهر ۱۴۰۵</small></div><div class="price-hero" id="selected-price" aria-live="polite"></div>${options}</section>${details}<p class="catalog-note">جزئیات کامل و جدول چاپی در تصویر اصلی کاتالوگ موجود است.</p>`;
 }
+
+// Mobile-only technical disclosure. Existing desktop template remains untouched.
+const originalAzaranProductTemplate=productTemplate;
+productTemplate=function(p){
+ const rows=[['توان',p.watt],[p.page===11?'طول':'ابعاد',p.dimension],['رنگ‌ها',p.colors.join('، ')]];
+ if(p.lumens) rows.push(['شار نوری',p.lumens]);
+ return originalAzaranProductTemplate(p)+
+ '<details class="mobile-specs"><summary><span>مشخصات فنی و رنگ‌ها</span><span class="mobile-detail-arrow" aria-hidden="true">+</span></summary>'+
+ '<div class="mobile-specs-body">'+rows.map(([label,value])=>'<div class="mobile-spec-row"><span>'+esc(label)+'</span><strong>'+esc(value)+'</strong></div>').join('')+
+ '<button type="button" class="mobile-spec-table" data-action="zoom-specs">مشاهده جدول اصلی و جزئیات</button></div></details>';
+};
+
 function drawThumbs(){const items=[{page:1,en:'COVER',fa:'جلد'},...PRODUCTS];$('#thumbs').innerHTML=items.map((p)=>`<button class="thumb" type="button" data-page="${p.page}" aria-label="رفتن به ${esc(p.fa)}، صفحه ${p.page}"><img src="${asset('page',p.page)}" alt="" loading="lazy"><small>${String(p.page).padStart(2,'0')}</small></button>`).join('')}
 function drawDrawer(q=''){const needle=normalized(q);const rows=PRODUCTS.filter(p=>normalized([p.fa,p.en,p.watt,p.dimension,p.colors.join(' '),p.variants.map(v=>v.label).join(' ')].join(' ')).includes(needle));$('#drawer-list').innerHTML=`<button type="button" class="drawer-item ${currentPage===1?'active':''}" data-go="1"><img src="${asset('source',1)}" alt="" loading="lazy"><span class="drawer-item-info"><b class="drawer-en">COVER</b><span class="drawer-fa">جلد اصلی کاتالوگ</span><span class="drawer-price">PENDANT LIGHTS</span></span><span class="drawer-item-index">01</span></button>${rows.map(p=>`<button type="button" class="drawer-item ${currentPage===p.page?'active':''}" data-go="${p.page}"><img src="${asset('hero',p.page)}" alt="چراغ آویز ${esc(p.fa)}" loading="lazy"><span class="drawer-item-info"><b class="drawer-en">${esc(p.en)}</b><span class="drawer-fa">آویز ${esc(p.fa)}</span><span class="drawer-price">از ${money(productMin(p))}</span></span><span class="drawer-item-index">${String(p.page).padStart(2,'0')}</span></button>`).join('')}${rows.length===0?'<div class="drawer-empty">محصولی با این عبارت پیدا نشد.</div>':''}`;$('#search-count').textContent=`${num(rows.length)} مدل`}
 function toggleDrawer(open){drawerOpen=Boolean(open);$('#drawer-shade').classList.toggle('open',drawerOpen);$('#drawer-shade').setAttribute('aria-hidden',String(!drawerOpen));document.body.classList.toggle('lock',drawerOpen||modalOpen);if(drawerOpen){lastFocus=document.activeElement;drawDrawer();$('#drawer-search').value='';$('#drawer-close').focus()}else if(lastFocus?.isConnected&&!modalOpen){lastFocus.focus()}}
@@ -514,6 +685,50 @@ if(matchMedia('(hover:hover) and (pointer:fine)').matches){
     motionStage.style.setProperty('--spot-x','50%');
     motionStage.style.setProperty('--spot-y','42%');
   });
+}
+
+
+// Scroll-triggered mobile reveals and touch-responsive product artwork.
+const azaranMobileQuery=window.matchMedia('(max-width:800px)');
+const azaranMobilePanel=document.getElementById('info-panel');
+const azaranMobileObserver='IntersectionObserver' in window ? new IntersectionObserver(entries=>{
+ if(entries[0]&&entries[0].isIntersecting) azaranMobilePanel.classList.add('mobile-inview');
+},{threshold:.12,rootMargin:'0px 0px -5% 0px'}) : null;
+if(azaranMobileObserver) azaranMobileObserver.observe(azaranMobilePanel);
+const azaranRegularRender=renderPage;
+renderPage=function(n){
+ if(azaranMobileQuery.matches) azaranMobilePanel.classList.remove('mobile-inview');
+ azaranRegularRender(n);
+ if(azaranMobileQuery.matches){
+  if(azaranMobileObserver){azaranMobileObserver.unobserve(azaranMobilePanel);azaranMobileObserver.observe(azaranMobilePanel);}
+  else azaranMobilePanel.classList.add('mobile-inview');
+ }
+};
+window.addEventListener('resize',()=>{
+ if(!azaranMobileQuery.matches) azaranMobilePanel.classList.remove('mobile-inview');
+ else if(!azaranMobileObserver) azaranMobilePanel.classList.add('mobile-inview');
+},{passive:true});
+if(window.matchMedia('(pointer:coarse)').matches){
+ const azaranTouchStage=document.querySelector('.stage');
+ let azaranTouchOrigin=null;
+ const azaranEndTouch=()=>{
+  azaranTouchOrigin=null;
+  azaranTouchStage.classList.remove('mobile-touching');
+  azaranTouchStage.style.removeProperty('--mobile-touch-x');
+  azaranTouchStage.style.removeProperty('--mobile-touch-r');
+ };
+ azaranTouchStage.addEventListener('pointerdown',event=>{
+  if(!azaranMobileQuery.matches||!event.target.closest('#sheet'))return;
+  azaranTouchOrigin={x:event.clientX,y:event.clientY};
+  azaranTouchStage.classList.add('mobile-touching');
+ },{passive:true});
+ azaranTouchStage.addEventListener('pointermove',event=>{
+  if(!azaranTouchOrigin)return;
+  const dx=Math.max(-8,Math.min(8,(event.clientX-azaranTouchOrigin.x)*.08));
+  azaranTouchStage.style.setProperty('--mobile-touch-x',dx.toFixed(1)+'px');
+  azaranTouchStage.style.setProperty('--mobile-touch-r',(dx*.25).toFixed(2)+'deg');
+ },{passive:true});
+ ['pointerup','pointercancel','pointerleave'].forEach(name=>azaranTouchStage.addEventListener(name,azaranEndTouch,{passive:true}));
 }
 
 window.addEventListener('hashchange',syncHash);window.addEventListener('popstate',syncHash);drawThumbs();drawDrawer();syncHash();
