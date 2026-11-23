@@ -681,6 +681,44 @@ html,body{overflow-x:clip}
   .info-panel.is-product .option-name{font-size:13px!important}
 }
 
+/* AZARAN CLEAN IMAGE INTEGRATION 2026-11-23 */
+
+@media(max-width:800px){
+  /* Keep the credit compact; avoid a large dark void below it on tall phones. */
+  body{background:#f7f3ed!important;min-height:0}
+  .site-credit{
+    display:flex!important;width:100%;min-height:0!important;margin:8px 0 0!important;
+    padding:12px 12px max(13px,env(safe-area-inset-bottom))!important;
+    background:#1e1813!important;border-top:1px solid rgba(221,183,126,.28);border-bottom:0;
+    align-items:center;justify-content:center;row-gap:1px!important;column-gap:8px!important;
+    font-size:13px!important;line-height:1.7!important;
+  }
+  .site-credit a{font-size:13px!important;line-height:1.7}
+  .site-credit .credit-url,.site-credit [aria-hidden="true"]{display:none!important}
+  /* More breathing room between meaningful elements, not more scrolling. */
+  .info-panel{margin-bottom:6px!important}
+  .info-panel .panel-inner,.info-panel.is-product .panel-inner{padding:25px 21px 27px!important}
+  .info-panel.is-product .title-group{gap:5px!important}
+  .info-panel.is-product .panel-fa{line-height:1.75!important}
+  .info-panel.is-product .panel-en{margin-top:1px!important;line-height:1.65}
+  .info-panel.is-product .price-section{margin-top:23px!important;padding-top:19px!important}
+  .info-panel.is-product .price-header{margin-bottom:14px!important}
+  .info-panel.is-product .price-hero{padding:16px!important;row-gap:9px!important}
+  .info-panel.is-product .choices-title{margin-top:19px!important;margin-bottom:12px!important}
+  .info-panel.is-product .price-choices{gap:11px!important;padding-bottom:9px!important}
+  .info-panel:not(.is-product) .cover-desc{margin-top:12px!important;margin-bottom:6px!important}
+  .info-panel:not(.is-product) .cover-price{margin-top:18px!important}
+  .stage{padding-bottom:14px!important}
+  .stage-topline{margin-bottom:15px!important}
+  .drawer-items{padding-top:11px}
+  .drawer-item{padding-block:10px}
+}
+@media(max-width:360px){
+  .info-panel .panel-inner,.info-panel.is-product .panel-inner{padding:22px 16px 24px!important}
+  .site-credit{font-size:12px!important;padding-inline:8px!important}
+  .site-credit a{font-size:12px!important}
+}
+
 </style></head><body>
 <header class="topbar"><a href="#page-1" class="identity" aria-label="بازگشت به جلد آذران نور"><span class="identity-symbol">✳</span><span class="brandtype latin"><b>AZARAN</b><small>NOOR</small></span></a><div class="topbar-center latin"><b>PENDANT LIGHTS</b><span>PRICE LIST / 1405</span></div><div class="top-actions"><button class="top-button" type="button" data-action="share" aria-label="اشتراک‌گذاری لینک"><svg viewBox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 2-2v-5"/></svg><span class="share-label">اشتراک‌گذاری</span></button><button class="top-button primary" type="button" data-action="menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>فهرست محصولات</span></button></div></header>
 <div class="top-progress"><span id="progress-fill"></span></div>
@@ -696,7 +734,12 @@ html,body{overflow-x:clip}
 <script src="./chunks/part-00.js"></script><script src="./chunks/part-01.js"></script><script src="./chunks/part-02.js"></script><script src="./chunks/part-03.js"></script><script src="./chunks/part-04.js"></script><script src="./chunks/part-05.js"></script><script src="./chunks/part-06.js"></script><script src="./chunks/part-07.js"></script><script src="./chunks/part-08.js"></script><script src="./chunks/part-09.js"></script><script src="./chunks/part-10.js"></script><script src="./chunks/part-11.js"></script><script src="./chunks/part-12.js"></script><script src="./chunks/part-13.js"></script><script src="./chunks/part-14.js"></script><script src="./chunks/part-15.js"></script><script src="./chunks/part-16.js"></script><script src="./chunks/part-17.js"></script><script>(()=>{'use strict';
 const {PRODUCTS,ASSETS}=JSON.parse(window.__azaranDataParts.join(''));window.__azaranDataParts=null;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const asset=(key,n)=>ASSETS[`${key}-${String(n).padStart(2,'0')}`];
+const asset=(key,n)=>{
+ const page=Number(n);
+ // Clean visuals replace product photo views, while original spec tables remain available.
+ if(page>=2 && page<=12 && (key==='source'||key==='page'||key==='hero')) return './images/clean-'+String(page).padStart(2,'0')+'.webp?v=20261123';
+ return ASSETS[`${key}-${String(n).padStart(2,'0')}`];
+};
 const ico={menu:'<svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',close:'<svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></svg>',search:'<svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5 5"/></svg>',zoom:'<svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5 5M10 7v6m-3-3h6"/></svg>',arrow:'<svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>',share:'<svg viewBox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 14v5a2 2 0 0 2 2h12a2 2 0 0 2-2v-5"/></svg>',check:'<svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>'};
 let currentPage=1,variantIndex=0,zoomed=false,drawerOpen=false,modalOpen=false,transitionSeq=0,lastFocus=null,toastTimer=0;
 const money=n=>n==null?'ناموجود':Number(n).toLocaleString('fa-IR')+' تومان';
