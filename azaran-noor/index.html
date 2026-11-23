@@ -543,6 +543,65 @@ html,body{overflow-x:clip}
   #info-panel:not(.mobile-inview) #info-content .mobile-specs{opacity:1!important}
 }
 
+
+/* === AZARAN MOBILE LEGIBILITY + RAIL REMOVAL 2026-11-23 ===
+   Changes scoped to mobile. Thumbnail rail is also deactivated in JavaScript. */
+.rail[hidden]{display:none!important}
+@media(max-width:800px){
+  /* Absolutely remove duplicated page strip and extra microcopy. */
+  .layout>.rail,#thumbs,.stage-bottom,.stage-hint,.source-label,.page-count-mobile,.legal-line{display:none!important;visibility:hidden!important}
+  .stage{padding-bottom:9px!important}
+  .stage-topline{margin-bottom:12px!important}
+  .stage-topline>span:first-child:before{font-size:12px!important;line-height:1.85;color:#e1d3c2;letter-spacing:0}
+  .stage-topline .latin{font-size:11px!important;letter-spacing:.04em;color:#c8a77e;line-height:1.65}
+  .stage-topline strong{font-size:11px}
+  /* Friendly reading size: Persian copy never deliberately shrinks to tiny labels. */
+  .info-panel{margin-top:5px!important;border-radius:19px}
+  .info-panel .panel-inner,.info-panel.is-product .panel-inner{padding:21px 19px 22px!important}
+  .info-panel.is-product .panel-fa{font-size:clamp(21px,5.7vw,25px)!important;line-height:1.65;font-weight:700}
+  .info-panel.is-product .panel-en{font-size:14px!important;line-height:1.55;letter-spacing:.06em}
+  .info-panel.is-product .price-section{margin-top:16px;padding-top:15px}
+  .info-panel.is-product .price-header{margin-bottom:10px}
+  .info-panel.is-product .price-header strong{font-size:14px!important}
+  .info-panel.is-product .price-header small{font-size:12px!important;color:#866c51}
+  .info-panel.is-product .price-hero{min-height:73px;padding:13px 14px}
+  .info-panel.is-product .price-hero small{font-size:12px!important;line-height:1.75}
+  .info-panel.is-product .price-hero b{font-size:clamp(25px,7vw,31px)!important;line-height:1.45}
+  .info-panel.is-product .price-hero b span{font-size:13px!important}
+  .info-panel.is-product .choices-title{font-size:13px!important;margin-top:16px;margin-bottom:9px}
+  .info-panel.is-product .price-choices{gap:9px;padding-bottom:9px}
+  .info-panel.is-product .price-choice{min-height:49px!important;padding:10px 14px!important;border-radius:11px}
+  .info-panel.is-product .option-name{font-size:13px!important;line-height:1.7}
+  .info-panel.is-product .option-dot{width:12px;height:12px;flex-basis:12px}
+  .mobile-specs{margin-top:15px}
+  .mobile-specs summary{min-height:51px!important;font-size:14px!important;line-height:1.8}
+  .mobile-spec-row{padding:10px 0;font-size:13px!important}
+  .mobile-spec-row span,.mobile-spec-row strong{font-size:13px!important}
+  .mobile-spec-table{min-height:48px;font-size:13px!important;line-height:1.7}
+  .info-panel:not(.is-product) .title-group:before{font-size:23px!important;line-height:1.7}
+  .info-panel:not(.is-product) .cover-desc{font-size:14px!important;line-height:2;-webkit-line-clamp:2}
+  .info-panel:not(.is-product) .cta-full{min-height:49px;font-size:14px!important}
+  .site-credit{font-size:12px!important;line-height:1.9;margin-top:13px;padding:16px 12px max(17px,env(safe-area-inset-bottom))}
+  .site-credit a{font-size:12px}
+  .drawer-title{font-size:22px}
+  .drawer-kicker{font-size:11px}
+  .drawer-item{min-height:83px}
+  .drawer-item .drawer-en{font-size:14px!important}
+  .drawer-item .drawer-fa,.drawer-item .drawer-price{font-size:12px!important;line-height:1.7}
+  .drawer-foot{font-size:12px}
+  .searchbox input{font-size:14px;min-height:46px}
+  .lightbox-top b{font-size:14px}
+  .lightbox-top small{font-size:12px}
+  .lightbox-bottom span{font-size:12px}
+  .lightbox-bottom button{font-size:12px}
+}
+@media(max-width:360px){
+  .stage-topline>span:first-child:before{font-size:11px!important}
+  .info-panel.is-product .price-hero b{font-size:23px!important}
+  .info-panel.is-product .panel-fa{font-size:20px!important}
+  .info-panel.is-product .option-name{font-size:12px!important}
+}
+
 </style></head><body>
 <header class="topbar"><a href="#page-1" class="identity" aria-label="بازگشت به جلد آذران نور"><span class="identity-symbol">✳</span><span class="brandtype latin"><b>AZARAN</b><small>NOOR</small></span></a><div class="topbar-center latin"><b>PENDANT LIGHTS</b><span>PRICE LIST / 1405</span></div><div class="top-actions"><button class="top-button" type="button" data-action="share" aria-label="اشتراک‌گذاری لینک"><svg viewBox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 2-2v-5"/></svg><span class="share-label">اشتراک‌گذاری</span></button><button class="top-button primary" type="button" data-action="menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>فهرست محصولات</span></button></div></header>
 <div class="top-progress"><span id="progress-fill"></span></div>
@@ -730,6 +789,31 @@ if(window.matchMedia('(pointer:coarse)').matches){
  },{passive:true});
  ['pointerup','pointercancel','pointerleave'].forEach(name=>azaranTouchStage.addEventListener(name,azaranEndTouch,{passive:true}));
 }
+
+
+// The thumbnail carousel is desktop-only. Do not create its image nodes on mobile.
+const azaranRailMedia=window.matchMedia('(max-width:800px)');
+const azaranDesktopDrawThumbs=drawThumbs;
+drawThumbs=function(){
+  const mobile=azaranRailMedia.matches;
+  const rail=document.querySelector('.rail');
+  rail.hidden=mobile;
+  rail.setAttribute('aria-hidden',String(mobile));
+  if(mobile) document.getElementById('thumbs').replaceChildren();
+  else azaranDesktopDrawThumbs();
+};
+const azaranSyncRailMode=()=>{
+  drawThumbs();
+  if(!azaranRailMedia.matches){
+    document.querySelectorAll('.thumb[data-page]').forEach(el=>{
+      const active=Number(el.dataset.page)===currentPage;
+      el.classList.toggle('active',active);
+      el.setAttribute('aria-current',active?'page':'false');
+    });
+  }
+};
+if(azaranRailMedia.addEventListener) azaranRailMedia.addEventListener('change',azaranSyncRailMode);
+else if(azaranRailMedia.addListener) azaranRailMedia.addListener(azaranSyncRailMode);
 
 window.addEventListener('hashchange',syncHash);window.addEventListener('popstate',syncHash);drawThumbs();drawDrawer();syncHash();
 })();</script></body></html>
